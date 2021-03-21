@@ -11,4 +11,23 @@ class Pokemon {
         this.resistance = resistance;
     }
 
+    attack(attack, target) {
+        if (!(target instanceof Pokemon)) {
+            console.log('Target is not a pokemon');
+            return false;
+        }
+        if (this.isSelf(target)) {
+            console.log("You can't attack yourself");
+        }
+    }
+
+    attacked(attack, attacker) { }
+
+    isSelf(pokemon) {
+        if (pokemon === this) {
+            return true;
+        }
+        return false;
+    }
+
 }
