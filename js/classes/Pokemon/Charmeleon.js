@@ -1,6 +1,5 @@
 class Charmeleon extends Pokemon {
     constructor(name) {
-        super('Charmeleon', energyType.FIRE, 60, [], [energyType.WATER, 2], [energyType.LIGHTNING, 10]);
-        this.name = name;
+        super(name, 'Charmeleon', energyTypes.FIRE, 60, [], [energyTypes.WATER, 2], [energyTypes.LIGHTNING, 10]);
     }
 }

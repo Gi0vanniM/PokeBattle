@@ -1,6 +1,5 @@
 class Pikachu extends Pokemon {
     constructor(name) {
-        super('Pikachu', energyType.LIGHTNING, 60, [], [energyType.FIRE, 1.5], [energyType.FIGHTING, 20]);
-        this.name = name;
+        super(name, 'Pikachu', energyTypes.LIGHTNING, 60, [], [energyTypes.FIRE, 1.5], [energyTypes.FIGHTING, 20]);
     }
 }
