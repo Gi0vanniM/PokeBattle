@@ -1,7 +1,8 @@
 
 class Pokemon {
 
-    constructor(pokemonName, energyType, hitpoints, attacks, weakness, resistance) {
+    constructor(name, pokemonName, energyType, hitpoints, attacks, weakness, resistance) {
+        this.name = name;
         this.pokemonName = pokemonName;
         this.energyType = energyType;
         this.hitpoints = hitpoints;
