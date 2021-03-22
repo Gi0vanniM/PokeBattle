@@ -12,6 +12,12 @@ class Pokemon {
         this.resistance = resistance;
     }
 
+    /**
+     * Attack a pokemon
+     * @param {Attack} attack
+     * @param {Pokemon} target
+     * @returns
+     */
     attack(attack, target) {
         if (!(target instanceof Pokemon)) {
             console.log('Target is not a pokemon');
@@ -19,11 +25,23 @@ class Pokemon {
         }
         if (this.isSelf(target)) {
             console.log("You can't attack yourself");
+            return false;
         }
+        if (!(attack instanceof Attack)) {
+            console.log("That's not an attack");
+            return false;
+        }
+
+        console.log(this.name + " uses " + "'" + attack.name + "'");
     }
 
     attacked(attack, attacker) { }
 
+    /**
+     * check if targeted pokemon is it self
+     * @param {Pokemon} pokemon
+     * @returns boolean
+     */
     isSelf(pokemon) {
         if (pokemon === this) {
             return true;
@@ -31,4 +49,15 @@ class Pokemon {
         return false;
     }
 
+    /**
+     * check if pokemon has certain attack
+     * @param {Attack} attack 
+     * @returns boolean
+     */
+    hasAttack(attack) {
+        if (this.attacks.find(a => a.name === attack.name)) {
+            return true;
+        }
+        return false;
+    }
 }
