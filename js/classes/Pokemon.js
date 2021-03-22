@@ -31,6 +31,10 @@ class Pokemon {
             console.log("That's not an attack");
             return false;
         }
+        if (!this.hasAttack(attack)) {
+            console.log("Pokemon does not know this attack");
+            return false;
+        }
 
         console.log(this.name + " uses " + "'" + attack.name + "'");
     }
