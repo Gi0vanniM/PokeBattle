@@ -1,6 +1,8 @@
 
 class Pokemon {
 
+    static population = [];
+
     constructor(name, pokemonName, energyType, hitpoints, attacks, weakness, resistance) {
         this.name = name;
         this.pokemonName = pokemonName;
@@ -10,6 +12,8 @@ class Pokemon {
         this.attacks = attacks;
         this.weakness = weakness;
         this.resistance = resistance;
+
+        Pokemon.pushPopulation(this);
     }
 
     /**
@@ -63,5 +67,23 @@ class Pokemon {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Get all the living pokemon
+     */
+    static getPopulation(alive = true) {
+        if (!alive) {
+            return Pokemon.population;
+        }
+        return Pokemon.population.filter(p => p.health > 0);
+    }
+
+    /**
+     * Push a Pokemon object to population array
+     * @param {Pokemon} pokemon 
+     */
+    static pushPopulation(pokemon) {
+        this.population.push(pokemon);
     }
 }
