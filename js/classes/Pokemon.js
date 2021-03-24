@@ -170,6 +170,19 @@ class Pokemon {
     }
 
     /**
+     * Get average health of pokemon population
+     * @returns float
+     */
+    static getPopulationHealth() {
+        let popu = Pokemon.getPopulation();
+        let health = 0;
+        popu.forEach(p => {
+            health += p.health;
+        });
+        return health / popu.length;
+    }
+
+    /**
      * Push a Pokemon object to population array
      * @param {Pokemon} pokemon 
      */
