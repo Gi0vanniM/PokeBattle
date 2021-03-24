@@ -3,6 +3,7 @@ class Pokemon {
 
     static population = [];
 
+    // at the moment no private properties since Firefox doesn't support it
     name;
     pokemonName;
     energyType;
