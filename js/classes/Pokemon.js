@@ -67,11 +67,22 @@ class Pokemon {
      */
     receiveAttack(attack, attacker) {
         // calculate damage amount
+
+        // get the multiplier amount if attacker's 
+        // energyType is same as receiver's weakness energyType
         let multiplier = 1;
         if (attacker.energyType === this.weakness.type) {
             multiplier = this.weakness.multiplier;
         }
         let damage = attack.damage * multiplier;
+
+        // lessen the damage if receiver's resistance 
+        // energyType is same as attacker's energyType
+        let resistance = 0;
+        if (this.resistance.type === attacker.energyType) {
+            resistance = this.resistance.amount;
+        }
+        damage -= resistance;
 
         this.receiveDamage(damage);
     }
