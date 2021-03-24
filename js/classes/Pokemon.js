@@ -127,6 +127,22 @@ class Pokemon {
     }
 
     /**
+     * set name method
+     * @param {string} name 
+     */
+    setName(name) {
+        this.name = name;
+    }
+
+    /**
+     * get name method
+     * @returns string
+     */
+    getName() {
+        return this.name;
+    }
+
+    /**
      * get health method
      * @returns int
      */
