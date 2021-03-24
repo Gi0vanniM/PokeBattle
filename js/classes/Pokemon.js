@@ -127,6 +127,14 @@ class Pokemon {
     }
 
     /**
+     * toString method
+     * @returns String
+     */
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    /**
      * Get all the living pokemon
      */
     static getPopulation(alive = true) {
