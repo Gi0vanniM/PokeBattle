@@ -127,6 +127,14 @@ class Pokemon {
     }
 
     /**
+     * get health method
+     * @returns int
+     */
+    getHealth() {
+        return this.health;
+    }
+
+    /**
      * toString method
      * @returns String
      */
