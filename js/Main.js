@@ -8,6 +8,7 @@ charHank.attack(charHank.attacks[0], pikaJeff);
 
 
 // how to make own pokemon
+// or make a new class
 let harryzard = new Pokemon(
     'Harryzard',
     'Charizard',
