@@ -3,6 +3,15 @@ class Pokemon {
 
     static population = [];
 
+    name;
+    pokemonName;
+    energyType;
+    hitpoints;
+    health;
+    attacks = [];
+    weakness = {};
+    resistance = {};
+
     constructor(name, pokemonName, energyType, hitpoints, attacks, weakness, resistance) {
         this.name = name;
         this.pokemonName = pokemonName;
@@ -10,8 +19,12 @@ class Pokemon {
         this.hitpoints = hitpoints;
         this.health = this.hitpoints; // at construction healt is at maximum
         this.attacks = attacks;
-        this.weakness = weakness;
-        this.resistance = resistance;
+
+        this.weakness.type = weakness[0];
+        this.weakness.multiplier = weakness[1];
+
+        this.resistance.type = resistance[0];
+        this.resistance.amount = resistance[1];
 
         Pokemon.pushPopulation(this);
     }
@@ -23,11 +36,12 @@ class Pokemon {
      * @returns
      */
     attack(attack, target) {
+        let attacker = this;
         if (!(target instanceof Pokemon)) {
             console.log('Target is not a pokemon');
             return false;
         }
-        if (this.isSelf(target)) {
+        if (attacker.isSelf(target)) {
             console.log("You can't attack yourself");
             return false;
         }
@@ -35,15 +49,47 @@ class Pokemon {
             console.log("That's not an attack");
             return false;
         }
-        if (!this.hasAttack(attack)) {
+        if (!attacker.hasAttack(attack)) {
             console.log("Pokemon does not know this attack");
             return false;
         }
 
-        console.log(this.name + " uses " + "'" + attack.name + "'");
+        console.log(attacker.name + " uses " + "'" + attack.name + "'");
+
+        target.receiveAttack(attack, this);
     }
 
-    attacked(attack, attacker) { }
+    /**
+     * Calculate the damage from an attack
+     * and receive the damage
+     * @param {Attack} attack 
+     * @param {Pokemon} attacker 
+     */
+    receiveAttack(attack, attacker) {
+        // calculate damage amount
+        let multiplier = 1;
+        if (attacker.energyType === this.weakness.type) {
+            multiplier = this.weakness.multiplier;
+        }
+        let damage = attack.damage * multiplier;
+
+        this.receiveDamage(damage);
+    }
+
+    /**
+     * receive amount of damage
+     * @param {Int} damage 
+     */
+    receiveDamage(damage) {
+        this.health -= damage;
+        console.log(this.name + ' received ' + damage + ' damage');
+
+        if (this.health <= 0) {
+            this.dead = true;
+            console.log(this.name + ' died');
+            // pokemon dead
+        }
+    }
 
     /**
      * check if targeted pokemon is it self
