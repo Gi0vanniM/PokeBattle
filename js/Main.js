@@ -3,8 +3,12 @@ let pikaJeff = new Pikachu('Jeff');
 let charHank = new Charmeleon('Hank');
 
 
-pikaJeff.attack(pikaJeff.attacks[1], charHank);
-charHank.attack(charHank.attacks[0], pikaJeff);
+pikaJeff.attack(attacks.ELECTRIC_RING, charHank);
+charHank.attack(charHank.attacks[1], pikaJeff);
+
+console.log(pikaJeff.getHealth(), charHank.getHealth());
+
+console.log(Pokemon.getPopulation());
 
 
 // how to make own pokemon
