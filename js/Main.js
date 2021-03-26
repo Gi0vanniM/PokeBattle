@@ -37,5 +37,6 @@ let harryzard = new Pokemon(
         // resistance type
         energyTypes.FIRE,
         // resitance amount
-        40]
+        40
+    ]
 );
