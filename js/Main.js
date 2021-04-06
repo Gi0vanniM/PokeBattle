@@ -11,6 +11,14 @@ console.log(pikaJeff.getHealth(), charHank.getHealth());
 console.log(Pokemon.getPopulation());
 
 
+baggo = new PokeBag('Me');
+
+baggo.add(pikaJeff);
+baggo.add(charHank);
+
+baggo.remove(pikaJeff);
+
+
 // how to make own pokemon
 // or make a new class
 let harryzard = new Pokemon(
