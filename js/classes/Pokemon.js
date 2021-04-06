@@ -189,4 +189,16 @@ class Pokemon {
     static pushPopulation(pokemon) {
         this.population.push(pokemon);
     }
+
+    /**
+     * Check if variable is Pokemon class object
+     * @param {Pokemon} pokemon 
+     * @returns 
+     */
+    static isPokemon(pokemon) {
+        if (pokemon instanceof Pokemon) {
+            return true;
+        }
+        return false;
+    }
 }
