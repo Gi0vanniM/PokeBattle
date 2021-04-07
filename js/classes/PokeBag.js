@@ -46,7 +46,9 @@ class PokeBag {
     }
 
     removeAll() {
-
+        // reset the array
+        this.pokemonCollection = [];
+        console.log('Removed all pokemon from bag');
     }
 
     showAll() {
