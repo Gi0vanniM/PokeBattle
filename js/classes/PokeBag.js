@@ -27,7 +27,7 @@ class PokeBag {
         }
         // add the pokemon to the bag's array
         this.pokemonCollection.push(pokemon);
-        console.log('Added ' + pokemon.name + ' to bag');
+        console.log('Added ' + pokemon.getName() + ' to bag');
     }
 
     remove(pokemon) {
@@ -42,7 +42,7 @@ class PokeBag {
         }
         // recreate the bag's array of pokemon but without the pokemon that gets removed
         this.pokemonCollection = this.pokemonCollection.filter(p => p !== pokemon);
-        console.log('Removed ' + pokemon.name + ' from bag');
+        console.log('Removed ' + pokemon.getName() + ' from bag');
     }
 
     removeAll() {
