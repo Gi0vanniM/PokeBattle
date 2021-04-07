@@ -52,7 +52,23 @@ class PokeBag {
     }
 
     showAll() {
+        let string = '';
+        // length of pokemonCollection
+        let collectionLength = this.pokemonCollection.length;
 
+        for (let i = 0; i < collectionLength; i++) {
+            // if last iteration add an 'and' before adding last pokemon's name
+            if (i === (collectionLength - 1) && i !== 0) {
+                string += ' and ';
+                // if iteration in between first and last add a comma before the i'th pokemon name
+            } else if (i < collectionLength && i !== 0) {
+                string += ', ';
+            }
+            // add pokemon name
+            string += this.pokemonCollection[i].getName();
+        }
+        // log the string
+        console.log(string);
     }
 
     isFull() {

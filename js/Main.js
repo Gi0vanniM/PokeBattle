@@ -16,7 +16,12 @@ baggo = new PokeBag('Me');
 baggo.add(pikaJeff);
 baggo.add(charHank);
 
-baggo.remove(pikaJeff);
+baggo.add(new Pikachu('Geoff'));
+baggo.add(new Pikachu('Pika'));
+baggo.add(new Pikachu('Bri ish'));
+baggo.add(new Pikachu('B'));
+
+baggo.showAll();
 
 
 // how to make own pokemon
